@@ -1,13 +1,6 @@
-/* global React ReactDOM */
-
-var MyTitle = React.createClass({
-  render: function () {
-    return (
-      React.DOM.div(null,
-        React.DOM.h1({ style: { color: this.props.color, fontWeight: 'bold' } }, this.props.title))
-    )
-  }
-})
+import React from 'react'
+import ReactDOM from 'react-dom'
+import MyTitle from './MyTitle'
 
 var MyTitleFactory = React.createFactory(MyTitle)
 
