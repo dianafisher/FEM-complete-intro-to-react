@@ -6,7 +6,7 @@ const Search = React.createClass({
 
   getInitialState () {
     return {
-      searchTerm: 'I am a random string.'
+      searchTerm: ''
     }
   },
   handleSearchTermChange (event) {
