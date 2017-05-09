@@ -30,9 +30,9 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: \/.json$\,
+        test: /\.json$/,
         loader: 'json-loader'
-      }
+      },
       {
         include: path.resolve(__dirname, 'js'),
         test: /\.js$/,
