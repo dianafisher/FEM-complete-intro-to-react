@@ -1,6 +1,18 @@
 import React from 'react'
+const { shape, string } = React.PropTypes
 
 const ShowCard = React.createClass({
+
+  // propTypes are things I expect to get from my parent.
+  propTypes: {
+    show: shape({
+      poster: string,
+      title: string,
+      year: string,
+      description: string
+    })
+  },
+
   render () {
     const { poster, title, year, description } = this.props.show
     return (
