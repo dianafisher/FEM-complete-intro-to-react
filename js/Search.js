@@ -25,11 +25,17 @@ const Search = React.createClass({
             placeholder='Search' />
         </header>
         <div>
-          {preload.shows.map((show) => {
-            return (
-              <ShowCard show={show} key={show.imdbID} />
-            )
-          })}
+          {preload.shows
+            .filter((show) => {
+              return `${show.title} ${show.description}`
+              .toUpperCase().indexOf(this.state.searchTerm
+                .toUpperCase()) >= 0
+            })
+            .map((show) => {
+              return (
+                <ShowCard show={show} key={show.imdbID} />
+              )
+            })}
         </div>
       </div>
       )
