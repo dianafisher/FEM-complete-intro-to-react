@@ -18,6 +18,7 @@ const Search = React.createClass({
       searchTerm: ''
     }
   },
+  
   handleSearchTermChange (event) {
     this.setState({searchTerm: event.target.value})
   },
@@ -26,7 +27,7 @@ const Search = React.createClass({
     return (
       <div className='search'>
         <Header
-          showSearch={true}
+          showSearch
           searchTerm={this.state.searchTerm}
           handleSearchTermChange={this.handleSearchTermChange}
         />

@@ -8,11 +8,11 @@ const ShowCard = React.createClass({
   // propTypes are things I expect to get from my parent.
   propTypes: {
     show: shape({
-      poster: string,
-      title: string,
-      year: string,
-      description: string,
-      imdbID: string
+      poster: string.isRequired,
+      title: string.isRequired,
+      year: string.isRequired,
+      description: string.isRequired,
+      imdbID: string.isRequired
     })
   },
 
