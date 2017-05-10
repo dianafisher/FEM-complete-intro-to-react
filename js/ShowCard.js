@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router'
+
 const { shape, string } = React.PropTypes
 
 const ShowCard = React.createClass({
@@ -9,21 +11,24 @@ const ShowCard = React.createClass({
       poster: string,
       title: string,
       year: string,
-      description: string
+      description: string,
+      imdbID: string
     })
   },
 
   render () {
-    const { poster, title, year, description } = this.props.show
+    const { poster, title, year, description, imdbID } = this.props.show
     return (
-      <div className='show-card'>
-        <img src={`/public/img/posters/${poster}`} />
-        <div>
-          <h3>{title}</h3>
-          <h4>({year})</h4>
-          <p>{description}</p>
+      <Link to={`/details/${imdbID}`}>
+        <div className='show-card'>
+          <img src={`/public/img/posters/${poster}`} />
+          <div>
+            <h3>{title}</h3>
+            <h4>({year})</h4>
+            <p>{description}</p>
+          </div>
         </div>
-      </div>
+      </Link>
     )
   }
 })
