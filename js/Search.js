@@ -43,4 +43,7 @@ const mapStateToProps = (state) => {
   }
 }
 
+// for our tests, have another Search which is not wrapped in redux
+export const Unwrapped = Search
+
 export default connect(mapStateToProps)(Search)
