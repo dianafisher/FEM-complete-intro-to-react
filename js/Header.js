@@ -1,13 +1,12 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { setSearchTerm } from './actionCreators'
 import { Link } from 'react-router'
 
 class Header extends React.Component {
 
   constructor (props) {
-    super(props)
-    this.state = {
-      blah: ''
-    }
+    super(props)  // must pass the props up to React.Component
 
     /*
     In React components declared as ES6 classes, methods follow
@@ -17,11 +16,11 @@ class Header extends React.Component {
     */
 
     // bind our method since ES6 does not autobind our methods for us.
-    this.someMethod = this.someMethod.bind(this)
+    this.handleSearchTermChange = this.handleSearchTermChange.bind(this)
   }
 
-  someMethod () {
-    this.setState({blah: 'some string'})
+  handleSearchTermChange (event) {
+    this.props.dispatch(setSearchTerm(event.target.value))
   }
 
   render () {
@@ -29,7 +28,7 @@ class Header extends React.Component {
     if (this.props.showSearch) {
       utilSpace = <input
         value={this.props.searchTerm}
-        onChange={this.props.handleSearchTermChange}
+        onChange={this.handleSearchTermChange}
         type='text'
         placeholder='Search'
                   />
@@ -58,9 +57,15 @@ class Header extends React.Component {
 // Want these on the static prototype rather than on the instance.
 const { func, bool, string } = React.PropTypes
 Header.propTypes = {
-  handleSearchTermChange: func,
   showSearch: bool,
-  searchTerm: string
+  searchTerm: string,
+  dispatch: func
 }
 
-export default Header
+const mapStateToProps = (state) => {
+  return {
+    searchTerm: state.searchTerm
+  }
+}
+
+export default connect(mapStateToProps)(Header)
