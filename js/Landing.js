@@ -33,7 +33,7 @@ const Landing = React.createClass({
             type='text'
             placeholder='Search'
           />
-          </form>
+        </form>
         <Link to='/search'>or Browse All</Link>
       </div>
     )
